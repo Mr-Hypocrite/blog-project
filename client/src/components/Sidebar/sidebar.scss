@@ -1,0 +1,104 @@
+@import '../../util/breakpoints';
+
+// Vars
+$text-primary: #b6b6b6;
+$text-secondary: #ececec;
+$bg-primary: #23232e;
+$bg-secondary: #141418;
+
+
+.sidebar {
+  background-color: $bg-primary;
+  color: $text-secondary;
+  font-weight: 500;
+  height: 100vh;
+  padding: 1rem 0.5rem;
+  position: fixed;
+  width: 5%;
+  transition: width 0.2s ease-in-out;
+
+  @include l {
+    height: fit-content;
+    bottom: 0;
+    width: 100vh;
+  }
+
+  .sidebar-links {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 90%;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+
+    @include l {
+      flex-direction: row;
+    }
+  }
+
+  .s-link, .logo {
+    border-radius: 4px;
+    display: flex;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    align-items: center;
+    padding: 0.4rem;
+    justify-content: center;
+    span {
+      display: none;
+      margin-left: 0.5rem;
+    }
+  }
+  .s-link {
+    &:hover {
+      background-color: $text-secondary;
+      color: $bg-primary;
+    }
+    &:nth-child(4) {
+      margin-top: auto;
+    }
+  }
+
+  .logo {
+    margin: auto;
+    .left, .right {
+      background-color: $text-secondary;
+      width: 0.8rem;
+    }
+    .left {
+      height: 1.6rem;
+    }
+    .right {
+      margin-left: 0.2rem;
+      height: 0.8rem;
+    }
+
+    &:hover {
+      .left {
+        height: 0.8rem;
+      }
+      .right {
+        height: 1.6rem;
+      }
+    }
+  }
+
+  .s-icon {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    width: 12%;
+    padding: 1rem;
+  
+    .s-link {
+      justify-content: flex-start;
+      width: 100%;
+      span {
+        display: unset;
+      }
+    }
+  }
+}
