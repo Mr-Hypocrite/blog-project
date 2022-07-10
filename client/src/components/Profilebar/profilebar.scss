@@ -1,0 +1,12 @@
+@import '../../util/breakpoints';
+
+.profilebar {
+  flex: 2;
+  height: 100vh;
+  border-left: 1px solid black;
+
+  @include breakpoint(1200px) {
+    flex: 3;
+    display: none;
+  }
+}

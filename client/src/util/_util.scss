@@ -1,3 +1,41 @@
-.home-container {
-  margin-left: 6%;
+@import './breakpoints';
+
+// Color Vars
+$text-primary: #b6b6b6;
+$text-secondary: #ececec;
+$bg-primary: #23232e;
+$bg-secondary: #141418;
+
+// Font Size Vars
+$title: 2rem;
+$sub-title: 1rem;
+
+.home {
+  display: flex;
+
+  @include l {
+    flex-direction: column;
+  }
+}
+
+// Layout Utils
+.flex-in-between {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+// Buttons
+.std-btn {
+  border: 1px solid white;
+  border-radius: 25px;
+  color: $text-secondary;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: $text-secondary;
+    color: $bg-primary;
+  }
 }

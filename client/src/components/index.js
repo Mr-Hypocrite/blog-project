@@ -1,3 +1,5 @@
-import SideBar from "./Sidebar/SideBar";
+import { SideBar } from "./Sidebar/SideBar";
+import { SearchBar } from "./Searchbar/SearchBar";
+import { ProfileBar } from "./Profilebar/ProfileBar";
 
-export { SideBar };
+export { SideBar, SearchBar, ProfileBar };
