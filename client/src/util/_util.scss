@@ -7,8 +7,12 @@ $bg-primary: #23232e;
 $bg-secondary: #141418;
 
 // Font Size Vars
+$author: 1rem;
+$card-title: 1.1rem;
+$card-sub-title: 0.8rem;
 $title: 2rem;
 $sub-title: 1rem;
+$sub-header: 1rem;
 
 .home {
   display: flex;
@@ -27,6 +31,7 @@ $sub-title: 1rem;
 
 // Buttons
 .std-btn {
+  background-color: transparent;
   border: 1px solid white;
   border-radius: 25px;
   color: $text-secondary;
@@ -38,4 +43,19 @@ $sub-title: 1rem;
     background-color: $text-secondary;
     color: $bg-primary;
   }
+}
+
+.tags {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 25px;
+  color: $text-secondary;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: $text-secondary;
+    color: $bg-primary;
+  } 
 }

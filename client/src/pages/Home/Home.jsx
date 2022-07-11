@@ -1,5 +1,6 @@
-import { ProfileBar, SearchBar, SideBar } from "../../components/";
+import { Card, ProfileBar, SearchBar, SideBar } from "../../components/";
 import "./home.scss";
+import { data } from "../../data/articleCard";
 
 export const Home = () => {
   // let screenWidth;
@@ -29,13 +30,27 @@ export const Home = () => {
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                   Nostrum pariatur dicta provident quibusdam sed.
                 </p>
-                <button className="std-btn">
-                  Read More
-                </button>
+                <button className="std-btn">Read More</button>
               </div>
             </div>
           </section>
-          <section id="match-for-you" className="match-for-you"></section>
+
+          <section id="match-for-you" className="match-for-you">
+            <h1 className="title">Topic Match for You</h1>
+            <div className="genre-tag-container">
+              <button className="tags">Design</button>
+              <button className="tags">Tech</button>
+              <button className="tags">Programming</button>
+              <button className="tags">Fiction</button>
+            </div>
+            <div className="card-container">
+              {
+                data.map((card, index) => (
+                  <Card data={card} key={index} />
+                ))
+              }
+            </div>
+          </section>
           <div className="abc"></div>
         </div>
         <ProfileBar />
