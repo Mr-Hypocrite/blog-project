@@ -35,12 +35,11 @@ export const ProfileBar = () => {
     <div className={`profilebar ${theme}`}>
       <Avatar props={userData} />
 
-      <span className="sub-header">Continue Reading</span>
+      <h1 className="sub-header">Continue Reading</h1>
 
       <Card data={cardData} />
 
-      
-
+      <h1 className="sub-header">More Interesting Topics</h1>
       <div className="topics">
         {[
           "Health",
@@ -49,6 +48,8 @@ export const ProfileBar = () => {
           "Productivity",
           "Business",
           "Money",
+          "Self Development",
+          "Self Development",
           "Self Development",
         ].map((topic, index) => (
           <span className="tags" key={index}>

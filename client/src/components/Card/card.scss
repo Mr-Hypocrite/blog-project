@@ -1,12 +1,14 @@
 @import '../../util/util';
 
 .card {
+  cursor: pointer;
   display: flex;
   height: 25rem;
   justify-content: space-between;
   flex-direction: column;
   overflow: hidden;
   width: 30rem;
+  transition: transform 0.3s ease-in-out;
   .card-img {
     border-radius: 6px;
     width: 100%;
@@ -44,5 +46,9 @@
         object-position: center;
       }
     }
+  }
+
+  &:hover {
+    transform: scale(0.98);
   }
 }

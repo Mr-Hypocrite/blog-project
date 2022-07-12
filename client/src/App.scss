@@ -14,10 +14,12 @@ h1, h2, h3, h4, h5, h6, p {
 
 .App {
   background-color: $bg-primary;
+  color: $text-secondary;
   width: 100vw;
   height: 100vh;
 
   &.light {
     background-color: white;
+    color: $bg-primary;
   }
 }

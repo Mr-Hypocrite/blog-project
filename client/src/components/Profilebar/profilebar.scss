@@ -5,16 +5,19 @@
   border-left: 1px solid $text-secondary;
   padding: 1.5rem;
   color: $text-secondary;
+  overflow: auto;
 
   .sub-header {
     font-size: $sub-header;
     font-weight: 700;
+    margin: 1.5rem 0;
   }
 
   .avatar-container {
     align-items: center;
     display: flex;
     gap: 1rem;
+    margin-bottom: 1.5rem;
 
     .avatar-info {
       display: flex;
@@ -33,6 +36,7 @@
   .card {
     width: 100%;
     height: fit-content;
+    gap: 1rem;
     .card-img {
       width: 100%;
       max-height: 13rem;
@@ -44,6 +48,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-bottom: 3rem;
   }
 
   &.light {

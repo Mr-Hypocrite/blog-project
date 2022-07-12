@@ -57,14 +57,61 @@
         align-items: center;
         display: flex;
         gap: 2rem;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-wrap: wrap;
+        margin: 2rem 0;
         transition: all 1s ease-in-out;
+
+        
+        @include l {
+          margin-bottom: 8rem;
+        }
       }
     }
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    @include xl {
+      .card {
+        flex-direction: row;
+        width: 90%;
+        height: 15rem;
+        gap: 1rem;
+        .card-img {
+          height: 100%;
+        }
+      }
+    }
+    @include l {
+      flex: unset;
+
+      .article-of-day {
+        .img-container {
+          height: 20rem;
+        }
+      } 
+
+      .card {
+        flex-direction: column;
+        width: 40%;
+        height: 25rem;
+        .card-img {
+          width: 100%;
+        }
+      }
+    }
+    @include breakpoint(600px) {
+      .card {
+        height: 27rem;
+        width: 70%;
+      }
+    }
+    @include md {
+      .card {
+        width: 90%;
+      }
     }
   }
 }

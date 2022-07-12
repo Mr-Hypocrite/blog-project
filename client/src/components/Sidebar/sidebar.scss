@@ -18,8 +18,16 @@
   .sidebar-links {
     height: 90vh;
 
+    @include breakpoint(1920px) {
+      height: 87vh;
+    }
+
     .s-bottom {
       margin-top: auto;
+      @include lh {
+        margin-top: unset;
+        margin-bottom: 2rem;
+      }
     }
 
     &, .s-bottom {
@@ -45,11 +53,17 @@
       @include md {
         font-size: 1.5rem;
       }
+      @include lh {
+        font-size: 1.5rem;
+      }
     }
     &:hover {
       background-color: $text-secondary;
       color: $bg-secondary;
       transform: scale(.95);
+    }
+    @include lh {
+      margin-left: 0.5rem;
     }
   }
 
@@ -127,38 +141,6 @@
       &, .s-bottom {
         gap: 1rem;
       }
-    }
-  }
-}
-
-// Logo Design
-.logo {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  gap: .5rem;
-  margin: 0 auto 1rem;
-  padding: 0.4rem;
-  width: fit-content;
-  .left, .right {
-    width: .8rem;
-    background-color: $text-secondary;
-    transition: all 0.5s ease-in-out;
-  }
-  .left {
-    height: 2rem;
-  }
-  .right {
-    height: 1rem;
-  }
-
-  // Logo Animation
-  &:hover {
-    .left {
-      transform: translateX(1.3rem);
-    }
-    .right {
-      transform: translateX(-1.3rem);
     }
   }
 }
