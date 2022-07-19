@@ -1,29 +1,24 @@
-import { useEffect, useState } from "react";
+import "./signin.scss";
+import { useContext, useEffect, useState } from "react";
+import { formFormat } from "../../data/signInFormat";
 import useFetch from "../../hooks/useFetch";
-import { formFormat } from "../../data/signUpFormat";
 import { AuthContext } from "../../context/AuthContext";
-import "./signup.scss";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const SignUp = () => {
-  const { data, postData } = useFetch(
-    `http://localhost:5000/auth/signUp`,
+export const SignIn = () => {
+  const { data, postData, error } = useFetch(
+    `http://localhost:5000/auth/signIn`,
     "POST"
   );
 
-  const { user, dispatch } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
-  let [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     userName: "",
-    email: "",
     password: "",
-    dob: "",
-    phone: "",
-    bio: "",
   });
+
+  const { user, dispatch } = useContext(AuthContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,6 +42,7 @@ export const SignUp = () => {
     if (data) {
       dispatch({ type: "LOGIN_SUCCESS", payload: data });
     }
+
   }, [data, dispatch, navigate, user]);
 
   return (
@@ -56,7 +52,7 @@ export const SignUp = () => {
           <div className="left"></div>
           <div className="right"></div>
         </div>
-        <h1 className="title">Sign Up</h1>
+        <h1 className="title">Sign In</h1>
         {formFormat.map((input, index) => (
           <div className="input-container" key={index}>
             <input
@@ -73,8 +69,9 @@ export const SignUp = () => {
           </div>
         ))}
         <button className="std-btn" onClick={handleSubmission}>
-          Sign Up
+          Sign In
         </button>
+        {error && <span>{error.message}</span>}
       </div>
     </div>
   );

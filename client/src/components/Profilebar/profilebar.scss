@@ -15,9 +15,11 @@
 
   .avatar-container {
     align-items: center;
+    cursor: pointer;
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    width: fit-content;
 
     .avatar-info {
       display: flex;
@@ -30,6 +32,10 @@
       height: 3rem;
       object-fit: cover;
       object-position: center;
+    }
+
+    &:hover {
+      background-color: aqua;
     }
   }
 

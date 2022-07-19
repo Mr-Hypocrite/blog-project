@@ -2,5 +2,8 @@ import { Home } from "./Home/Home";
 import { Feed } from "./Feed/Feed";
 import { Create } from './Create/Create'
 import { SignUp } from "./SignUp/SignUp";
+import { SignIn } from "./SignIn/SignIn";
+import { Settings } from "./Settings/Settings";
+import { UserProfile } from "./UserProfile/UserProfile"
 
-export { Home, Feed, Create, SignUp };
+export { Home, Feed, Create, SignUp, SignIn, UserProfile, Settings };

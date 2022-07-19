@@ -1,17 +1,14 @@
 import "./profilebar.scss";
 
-import React from "react";
+import { useContext } from "react";
 import { Card } from "../index";
 import { data } from "../../data/articleCard";
+import { AuthContext } from "../../context/AuthContext";
 
 export const ProfileBar = () => {
   let theme = ``;
 
-  let userData = {
-    name: data[0].authorName,
-    profile: data[0].authorProfile,
-    membership: "Member",
-  };
+  const { user } = useContext(AuthContext);
 
   let cardData = data[1];
 
@@ -19,12 +16,12 @@ export const ProfileBar = () => {
     return (
       <div className="avatar-container">
         <img
-          src={props.profile}
+          src={props?.profile}
           alt="user-profile"
           className="avatar-profile"
         />
         <div className="avatar-info">
-          <span className="name"> {props.name} </span>
+          <span className="name"> {props.userName} </span>
           <span className="membership"> {props.membership} </span>
         </div>
       </div>
@@ -32,8 +29,8 @@ export const ProfileBar = () => {
   };
 
   return (
-    <div className={`profilebar ${theme}`}>
-      <Avatar props={userData} />
+    user && <div className={`profilebar ${theme}`}>
+      <Avatar props={user} />
 
       <h1 className="sub-header">Continue Reading</h1>
 

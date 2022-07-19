@@ -6,11 +6,22 @@ import {
   LogoutTwoToneIcon,
   SettingsOutlinedIcon,
 } from "../../icons";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export const SideBar = () => {
-
   let theme = ``;
+
+  const [logout, setLogout] = useState(false);
+
+  const { user, dispatch } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (logout) {
+      dispatch({ type: "LOGOUT" });
+    }
+  }, [logout, dispatch]);
 
   return (
     <div className={`sidebar ${theme}`}>
@@ -36,10 +47,10 @@ export const SideBar = () => {
             <SettingsOutlinedIcon className="s-icon" />
             <span>Settings</span>
           </Link>
-          <Link to="/" className="s-link">
+          {user && <div className="s-link" onClick={() => setLogout(true)}>
             <LogoutTwoToneIcon className="s-icon" />
             <span>Logout</span>
-          </Link>
+          </div>}
         </div>
       </div>
     </div>
