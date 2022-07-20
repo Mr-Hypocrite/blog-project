@@ -38,7 +38,7 @@ const signIn = async (req, res, next) => {
 };
 
 const signOut = (req, res) => {
-  res.cookie("access_token", "", { maxAge: 1 }).json("Signed Out");
+  res.cookie("access_token", "", { maxAge: 0 }).json("Signed Out");
 };
 
 const signUp = async (req, res, next) => {

@@ -4,12 +4,15 @@ import { formFormat } from "../../data/signInFormat";
 import useFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const SignIn = () => {
-  const { data, postData, error } = useFetch(
-    `http://localhost:5000/auth/signIn`,
-    "POST"
-  );
+  // const { data, postData, error } = useFetch(
+  //   `http://localhost:5000/auth/signIn`,
+  //   "POST"
+  // );
+
+  let [data, setData] =useState();
 
   const navigate = useNavigate();
 
@@ -31,18 +34,23 @@ export const SignIn = () => {
   };
 
   const handleSubmission = () => {
-    postData(formData);
+    axios.post('http://localhost:5000/auth/signIn', formData)
+    .then(function (response) {
+      setData(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   };
 
   useEffect(() => {
     if (user) {
-      console.log(user);
+      console.log(data);
       navigate("/");
     }
     if (data) {
       dispatch({ type: "LOGIN_SUCCESS", payload: data });
     }
-
   }, [data, dispatch, navigate, user]);
 
   return (
@@ -71,7 +79,7 @@ export const SignIn = () => {
         <button className="std-btn" onClick={handleSubmission}>
           Sign In
         </button>
-        {error && <span>{error.message}</span>}
+        {/* {error && <span>{error.message}</span>} */}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { verifyUser } from '../utils/verifyToken.js'
 const router = express.Router()
 
 router.get('/blogs')
-router.get('/blog/:id')
+router.get('/:id')
 router.post('/create', verifyUser, createBlog)
 
 export default router
